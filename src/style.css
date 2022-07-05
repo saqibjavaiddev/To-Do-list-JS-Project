@@ -1,0 +1,70 @@
+body {
+  background-color: #f6f6f6;
+}
+
+#todo-list {
+  list-style: none;
+  background-color: white;
+  width: 500px;
+  margin: auto;
+  padding: 0;
+  margin-top: 100px;
+  box-shadow: rgba(100, 100, 120, 0.2) 0 5px 25px 0;
+}
+
+#todo-list li {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  display: flex;
+  padding: 10px 15px 10px 10px;
+  color: rgb(92, 89, 89);
+}
+
+#todo-list li i {
+  margin-left: auto;
+}
+
+.head {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.add-item input {
+  border: 0;
+  font-style: italic;
+  width: 100%;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+input[type=checkbox] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.fa {
+  color: rgb(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.fa:hover {
+  color: black;
+}
+
+.btn {
+  background-color: #f6f6f6;
+}
+
+.btn a {
+  text-align: center;
+  color: black;
+  opacity: 0.5;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.btn:hover {
+  background-color: rgb(0, 0, 0, 0.3);
+}
