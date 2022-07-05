@@ -7,9 +7,9 @@ module.exports = {
     index: './src/index.js',
   },
   devtool: 'inline-source-map',
- devServer: {
-   static: './dist',
- },
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
@@ -18,7 +18,15 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-   clean: true,
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   optimization: {
     runtimeChunk: 'single',
