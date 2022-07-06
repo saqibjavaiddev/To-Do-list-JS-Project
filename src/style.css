@@ -68,3 +68,12 @@ input[type=checkbox] {
 .btn:hover {
   background-color: rgb(0, 0, 0, 0.3);
 }
+
+.hideellipsis {
+  display: none;
+}
+
+input.description {
+  width: 100%;
+  border: 0;
+}

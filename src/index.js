@@ -1,44 +1,63 @@
 import './style.css';
+import localstore from './localstore.js';
+import displayhtml from './displayhtml.js';
 
-const todoList = [
-  {
-    description: 'Task 1',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Task 3',
-    completed: true,
-    index: 3,
-  },
-  {
-    description: 'Task 4',
-    completed: false,
-    index: 4,
-  },
-  {
-    description: 'Task 2',
-    completed: true,
-    index: 1,
-  },
-];
-const btn = document.querySelector('.btn');
-const list = document.querySelector('#todo-list');
-function displayList() {
-  todoList.sort((a, b) => a.index - b.index);
-  todoList.forEach((item) => {
-    const newItem = document.createElement('li');
-    const newIcon = document.createElement('i');
-    newIcon.classList.add('fa', 'fa-ellipsis-v');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    const label = document.createElement('label');
-    const textnode = document.createTextNode(item.description);
-    label.appendChild(textnode);
-    newItem.appendChild(checkbox);
-    newItem.appendChild(label);
-    newItem.appendChild(newIcon);
-    list.insertBefore(newItem, btn);
+const todoList = [];
+
+const renderUI = () => {
+  if (!JSON.parse(localStorage.getItem('todo-list'))) {
+    localstore.storetask(localstore.sortindex(todoList));
+  }
+  // Display List of tasks in UI
+  displayhtml.displayList();
+  // Event for Checkboxes
+  const checkboxes = document.querySelectorAll('.checkbox');
+  [...checkboxes].forEach((button) => {
+    button.addEventListener('change', localstore.completeTask);
   });
-}
-displayList();
+  // Event for Update Task
+  const inputs = document.querySelectorAll('.description');
+  [...inputs].forEach((input) => {
+    input.addEventListener('focusout', localstore.updateTask);
+  });
+  // Hide Ellipsis icon and display trash icon
+  [...inputs].forEach((input) => {
+    input.addEventListener('focus', (event) => {
+      event.target.style.backgroundColor = '#fff4bf';
+      event.target.parentElement.style.backgroundColor = '#fff4bf';
+      event.target.nextSibling.classList.add('hideellipsis');
+      event.target.nextSibling.nextSibling.classList.remove('hideellipsis');
+    });
+  });
+  // Trash task from list
+  const trashes = document.querySelectorAll('.fa-trash');
+  [...trashes].forEach((trash) => {
+    trash.addEventListener('click', (event) => {
+      localstore.remove(event);
+      const oldList = document.querySelectorAll('.todoItem');
+      [...oldList].forEach((e) => e.remove());
+      renderUI();
+    });
+  });
+};
+// Add Item in the list when user press enter after input
+const input = document.querySelector('#additem');
+input.addEventListener('keyup', (event) => {
+  if (event.keyCode === 13) { // Returns Enter Key
+    localstore.add(event);
+    event.target.value = '';
+    const oldList = document.querySelectorAll('.todoItem');
+    [...oldList].forEach((e) => e.remove());
+    renderUI();
+  }
+});
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', (e) => {
+  e.preventDefault();
+  localstore.clearCompleted();
+  const oldList = document.querySelectorAll('.todoItem');
+  [...oldList].forEach((e) => e.remove());
+  renderUI();
+});
+
+renderUI();
