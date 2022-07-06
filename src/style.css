@@ -70,7 +70,7 @@ input[type=checkbox] {
 }
 
 .hideellipsis {
- display: none;
+  display: none;
 }
 
 input.description {
