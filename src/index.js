@@ -1,5 +1,6 @@
 import './style.css';
 import localstore from './localstore.js';
+import completed from './completedtasks.js';
 import displayhtml from './displayhtml.js';
 
 const todoList = [];
@@ -12,8 +13,9 @@ const renderUI = () => {
   displayhtml.displayList();
   // Event for Checkboxes
   const checkboxes = document.querySelectorAll('.checkbox');
+
   [...checkboxes].forEach((button) => {
-    button.addEventListener('change', localstore.completeTask);
+    button.addEventListener('change', completed);
   });
   // Event for Update Task
   const inputs = document.querySelectorAll('.description');
@@ -51,6 +53,7 @@ input.addEventListener('keyup', (event) => {
     renderUI();
   }
 });
+// Remove Completed Tasks
 const btn = document.querySelector('.btn');
 btn.addEventListener('click', (e) => {
   e.preventDefault();

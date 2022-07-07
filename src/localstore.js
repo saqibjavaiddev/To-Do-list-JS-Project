@@ -9,16 +9,6 @@ export default (() => {
   };
 
   const gettasks = () => JSON.parse(localStorage.getItem('todo-list'));
-  // Make checkbox true for completed taskss
-  const completeTask = (event) => {
-    const list = gettasks();
-    if (event.target.checked === true) {
-      list[event.target.id].completed = true;
-    } else {
-      list[event.target.id].completed = false;
-    }
-    storetask(list);
-  };
   // Tasks in the list
   const add = (event) => {
     const list = gettasks();
@@ -56,10 +46,10 @@ export default (() => {
     sortindex,
     storetask,
     gettasks,
-    completeTask,
     add,
     updateTask,
     remove,
     clearCompleted,
+
   };
 })();
