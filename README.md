@@ -15,7 +15,7 @@
 
 ## Live Demo 
 
-[Live Demo Link](https://saqibjavaiddev.github.io/To-Do-list-JS-Project/)
+[Live Demo Link](https://saqibjavaiddev.github.io/To-Do-list-JS-Project/src)
 
 ## Getting Started
 To get a local copy of this exercice, Please follow these simple example steps.
