@@ -12,6 +12,4 @@ export default (e) => {
     list[e.target.id].completed = false;
   }
   storetask(list);
-  
 };
-
