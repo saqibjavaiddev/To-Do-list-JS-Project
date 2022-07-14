@@ -73,22 +73,22 @@ describe('Complete Method', () => {
   });
 });
 
-// describe('clearAllCompleted Method', () => {
-//   test('clearAllCompleted item from the list', () => {
-//     expect(localstore.clearAllCompleted()).toBe(3);
-//   });
+describe('clearAllCompleted Method', () => {
+  test('clearAllCompleted item from the list', () => {
+    expect(localstore.clearAllCompleted()).toBe(3);
+  });
 
-//   test('Complete one item from the list', () => {
-//     myhtml();
+  test('Complete one item from the list', () => {
+    myhtml();
 
-//     localstore.displayList();
-//     localstore.clearAllCompleted();
-//     localstore.renderUI();
-//     const list = document.querySelectorAll('.todoItem');
-//     expect(list).toHaveLength(3);
-//   });
-// }); const list = document.querySelectorAll('.todoItem');
-//     expect(list).toHaveLength(3);
-//   });
-// });
+    localstore.displayList();
+    localstore.clearAllCompleted();
+    localstore.renderUI();
+    const list = document.querySelectorAll('.todoItem');
+    expect(list).toHaveLength(3);
+  });
+}); const list = document.querySelectorAll('.todoItem');
+    expect(list).toHaveLength(3);
+  });
+});
 
