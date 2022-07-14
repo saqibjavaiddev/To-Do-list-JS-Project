@@ -6,6 +6,7 @@ const add = (event) => {
   return list.length;
 };
 
+ Testing-To-do-list-part-2
 let list = [{ description: 'task one', completed: false, index: 0 },
   { description: 'task two', completed: false, index: 1 },
   { description: 'task three', completed: false, index: 2 },
@@ -32,6 +33,7 @@ const remove = (event) => {
   return list.length;
 };
 
+Testing-To-do-list-part-2
 const edit = (event) => {
   const { index } = event.target;
   list[index].description = event.target.value;

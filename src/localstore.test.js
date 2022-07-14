@@ -6,6 +6,7 @@ const dom = new JSDOM();
 global.document = dom.window.document;
 global.window = dom.window;
 
+
 const myhtml = () => {
   document.body.innerHTML = `<ul id="todo-list">
       <li>Today's To Do<i class="fa-solid fa-arrows-rotate"></i></li>
@@ -22,6 +23,7 @@ describe('Add Method', () => {
 
   test('Add one new item to the list', () => {
     myhtml();
+
     displayhtml.addListItem({ description: 'First Item', completed: false, index: 1 });
     const list = document.querySelectorAll('#todo-list li');
     expect(list).toHaveLength(4);
@@ -30,6 +32,7 @@ describe('Add Method', () => {
 
 describe('Remove Method', () => {
   test('Remove from the list', () => {
+ Testing-To-do-list-part-2
     expect(localstore.remove({ target: { index: '1' } })).toBe(5);
   });
 
@@ -88,3 +91,4 @@ describe('Complete Method', () => {
 //     expect(list).toHaveLength(3);
 //   });
 // });
+
