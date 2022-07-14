@@ -6,9 +6,12 @@ const add = (event) => {
   return list.length;
 };
 
-const list = [{ description: 'task one', completed: false, index: 0 },
+let list = [{ description: 'task one', completed: false, index: 0 },
   { description: 'task two', completed: false, index: 1 },
   { description: 'task three', completed: false, index: 2 },
+  { description: 'task four', completed: false, index: 3 },
+  { description: 'task five', completed: false, index: 4 },
+  { description: 'task six', completed: false, index: 5 },
 ];
 
 const displayList = () => {
@@ -29,4 +32,24 @@ const remove = (event) => {
   return list.length;
 };
 
-module.exports = { add, remove, displayList };
+const edit = (event) => {
+  const { index } = event.target;
+  list[index].description = event.target.value;
+  return list[index].description;
+};
+
+const completed = (event) => {
+  const { index } = event.target;
+  list[index].completed = event.target.completed;
+  return list[index].completed;
+};
+
+const clearAllCompleted = () => {
+  const newList = list.filter((e) => e.completed === false);
+  list = newList;
+  return list.length;
+};
+
+module.exports = {
+  add, remove, displayList, renderUI, edit, completed, clearAllCompleted,
+};
