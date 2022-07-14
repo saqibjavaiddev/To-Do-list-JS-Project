@@ -22,7 +22,11 @@ describe('Add Method', () => {
 
   test('Add one new item to the list', () => {
     myhtml();
-    displayhtml.addListItem({ description: 'First Item', completed: false, index: 1 });
+    displayhtml.addListItem({
+      description: 'First Item',
+      completed: false,
+      index: 1,
+    });
     const list = document.querySelectorAll('#todo-list li');
     expect(list).toHaveLength(4);
   });
@@ -44,7 +48,9 @@ describe('Remove Method', () => {
 
 describe('Editing Method', () => {
   test('Edit item from the list', () => {
-    expect(localstore.edit({ target: { index: '0', value: 'New Task' } })).toBe('New Task');
+    expect(localstore.edit({ target: { index: '0', value: 'New Task' } })).toBe(
+      'New Task',
+    );
   });
 
   test('Edit one item from the list', () => {
@@ -59,7 +65,9 @@ describe('Editing Method', () => {
 
 describe('Complete Method', () => {
   test('Complete item from the list', () => {
-    expect(localstore.completed({ target: { index: '0', completed: true } })).toBeTruthy();
+    expect(
+      localstore.completed({ target: { index: '0', completed: true } }),
+    ).toBeTruthy();
   });
 
   test('Complete one item from the list', () => {
@@ -87,8 +95,7 @@ describe('clearAllCompleted Method', () => {
     const list = document.querySelectorAll('.todoItem');
     expect(list).toHaveLength(3);
   });
-}); const list = document.querySelectorAll('.todoItem');
-    expect(list).toHaveLength(3);
-  });
+  // }); const list = document.querySelectorAll('.todoItem');
+  //     expect(list).toHaveLength(3);
+  // });
 });
-
