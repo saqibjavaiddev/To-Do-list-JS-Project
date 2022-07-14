@@ -95,7 +95,4 @@ describe('clearAllCompleted Method', () => {
     const list = document.querySelectorAll('.todoItem');
     expect(list).toHaveLength(3);
   });
-  // }); const list = document.querySelectorAll('.todoItem');
-  //     expect(list).toHaveLength(3);
-  // });
 });
