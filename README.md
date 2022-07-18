@@ -2,7 +2,7 @@
 
 # TO Do List JS Project
 
-> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
+> "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete in local storage. Build using HTML,CSS and JS.
 
 
 ## Built With
